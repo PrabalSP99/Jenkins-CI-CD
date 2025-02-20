@@ -1,20 +1,38 @@
 pipeline{
     agent any
     stages{
-
-          stage('Build'){
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true // reuse the node for the next stage 
-                }
-            }
+        stage('hello'){
             steps{
-                sh '''
-                    ls -l
-                    node --version
-                '''
+                echo "hello world"
             }
-          }
         }
+    }
 }
+
+
+
+
+
+
+
+
+// pipeline{
+//     agent any
+//     stages{
+
+//           stage('Build'){
+//             agent {
+//                 docker {
+//                     image 'node:18-alpine'
+//                     reuseNode true // reuse the node for the next stage 
+//                 }
+//             }
+//             steps{
+//                 sh '''
+//                     ls -l
+//                     node --version
+//                 '''
+//             }
+//           }
+//         }
+// }
