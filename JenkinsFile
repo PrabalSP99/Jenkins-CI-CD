@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''
-                echo 'Building..'
-                sudo -u jenkins docker ps
-                '''
+                sh 'echo "Checking Docker Access"'
+                sh 'whoami'
+                sh 'which docker || echo "Docker NOT found!"'
+                sh 'docker ps || echo "Docker not accessible!"'
             }
             // agent {
             //     docker {
